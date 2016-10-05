@@ -5,16 +5,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.Random;
 
 import static com.example.rajukoushik.scarnesdice.R.drawable.dice1;
 
 public class MainActivity extends AppCompatActivity {
-    private int overallUserScore;
-    private int userScore;
-    private int computerScore;
-    private int overallComputerScore;
+    private int overallUserScore = 0;
+    private int userScore = 0;
+    private int computerScore = 0;
+    private int overallComputerScore = 0;
+    private TextView scoreCard;
     Random random = new Random();
 
 
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        scoreCard = (TextView) findViewById(R.id.textView);
     }
 
     public void clickRoll(View view) {
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         if(randomNum ==1)
         {
             whoamiwith.setBackgroundResource(R.drawable.dice1);
+
         }
         else if(randomNum ==2)
         {
@@ -52,10 +56,38 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
+
             whoamiwith.setBackgroundResource(R.drawable.dice6);
+        }
+        if(randomNum ==1)
+        {
+            userScore = 0;
+            scoreCard.setText("Your Score : 0  Computer Score : 0 Your turn Score: " + userScore);
+
+        }
+        else
+        {
+            userScore = randomNum + userScore;
+            scoreCard.setText("Your Score : 0  Computer Score : 0 Your turn Score: " + userScore);
         }
 
 
+    }
+
+    public void clickHold(View view) {
+        overallUserScore = overallUserScore  + userScore;
+        userScore = 0;
+        scoreCard.setText("Your Score : "+overallUserScore+" Computer Score : 0 Your turn Score: " + userScore);
+
+
+    }
+
+    public void clickReset(View view) {
+         overallUserScore = 0;
+        userScore = 0;
+        computerScore = 0;
+         overallComputerScore = 0;
+        scoreCard.setText("Your Score : "+overallUserScore+" Computer Score : 0 Your turn Score: " + userScore);
 
     }
 }
