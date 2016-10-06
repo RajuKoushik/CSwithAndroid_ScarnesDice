@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     private int computerScore = 0;
     private int overallComputerScore = 0;
     private TextView scoreCard;
+    private Button rollButton = (Button)findViewById(R.id.button);
+    private Button holdButton = (Button)findViewById(R.id.button2);
+    private Button resetButton = (Button)findViewById(R.id.button3);
     Random random = new Random();
 
 
@@ -88,6 +92,13 @@ public class MainActivity extends AppCompatActivity {
         computerScore = 0;
          overallComputerScore = 0;
         scoreCard.setText("Your Score : "+overallUserScore+" Computer Score : 0 Your turn Score: " + userScore);
+
+    }
+    public void computerTurn()
+    {
+        rollButton.setEnabled(false);
+        holdButton.setEnabled(false);
+        resetButton.setEnabled(false);
 
     }
 
