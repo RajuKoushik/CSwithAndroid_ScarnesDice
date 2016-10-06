@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         if(randomNum ==1)
         {
             whoamiwith.setBackgroundResource(R.drawable.dice1);
-
+            computerTurn();
         }
         else if(randomNum ==2)
         {
@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         overallUserScore = overallUserScore  + userScore;
         userScore = 0;
         scoreCard.setText("Your Score : "+overallUserScore+" Computer Score : 0 Your turn Score: " + userScore);
+        computerTurn();
 
 
     }
