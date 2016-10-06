@@ -99,6 +99,48 @@ public class MainActivity extends AppCompatActivity {
         rollButton.setEnabled(false);
         holdButton.setEnabled(false);
         resetButton.setEnabled(false);
+        int max = 6;
+        int min = 1;
+        int randomNum = random.nextInt((max - min) + 1) + min;
+        ImageView whoamiwith = (ImageView)findViewById(R.id.imageView);
+        if(randomNum ==1)
+        {
+            whoamiwith.setBackgroundResource(R.drawable.dice1);
+
+        }
+        else if(randomNum ==2)
+        {
+            whoamiwith.setBackgroundResource(R.drawable.dice2);
+        }
+        else if(randomNum ==2)
+        {
+            whoamiwith.setBackgroundResource(R.drawable.dice3);
+        }
+        else if(randomNum ==2)
+        {
+            whoamiwith.setBackgroundResource(R.drawable.dice4);
+        }
+        else if(randomNum ==2)
+        {
+            whoamiwith.setBackgroundResource(R.drawable.dice5);
+        }
+        else
+        {
+
+            whoamiwith.setBackgroundResource(R.drawable.dice6);
+        }
+        if(randomNum ==1)
+        {
+            computerScore = 0;
+            scoreCard.setText("Your Score :"+overallComputerScore + " Computer Score :"+computerScore+"Your turn Score: " + userScore);
+
+        }
+        else
+        {
+            computerScore = randomNum + userScore;
+            scoreCard.setText("Your Score :"+overallComputerScore + " Computer Score :"+computerScore+"Your turn Score: " + userScore);
+        }
+
 
     }
 
